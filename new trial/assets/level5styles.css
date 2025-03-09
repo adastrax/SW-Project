@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('images/snow.png');
+    background-repeat: repeat;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+#start-btn {
+    padding: 12px 25px;
+    font-size: 18px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#start-btn:hover {
+    background-color: #16a085;
+    transform: scale(1.05);
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+#wolf {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+#progress-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 20px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+#timer {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+
+#wolf {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: left 0.5s ease, top 0.5s ease;
+}

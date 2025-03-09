@@ -1,0 +1,128 @@
+/* body {
+    background: url("/images/bg-level1.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+
+body {
+   
+    background-size: 100px 100px;
+    background-repeat: repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+#game-intro {
+    padding: 20px;
+}
+
+#game-intro p {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+#start-btn {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+#start-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+#game-area {
+    margin-top: 20px;
+}
+
+.target-container {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.target-text {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#target-image {
+    width: 100px;
+    height: 100px;
+}
+
+#choices-container, #distractions-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.choice-image, .distraction-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.choice-image:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 10px rgba(255,255,255,0.6);
+}
+
+.distraction-image {
+    opacity: 0.7;
+    filter: grayscale(50%);
+}
+
+#progress-container {
+    width: 80%;
+    height: 15px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 20px;
+    margin: 20px auto 10px auto;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #00b09b, #96c93d);
+    transition: width 0.5s ease;
+}
+
+#progress-text {
+    font-size: 18px;
+    margin-top: 5px;
+}

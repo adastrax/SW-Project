@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记忆生存游戏</title>
+    <link rel="stylesheet" href="assets/level3styles.css">
+</head>
+
+<body>
+    <div id="game-container">
+
+            <!-- Audio play button -->
+    <button id="play-audio-btn">🔊Play instruction</button>
+
+    <!-- Progress bar -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!--Game status alert  -->
+    <p id="game-status-text"></p>
+
+    <!--Keep the only audio element  -->
+    <audio id="npc-audio"></audio>
+
+
+        <div id="npc-container">
+            <img src="assets/images/npc.png" alt="村民" id="npc">
+            <p id="npc-text">listen to the instructions and click in the correct order！</p>
+        </div>
+
+        <p id="instruction-text">Please click in the correct order</p>
+
+        <div id="choices-container">
+            <img src="assets/images/water.png" class="choice-image" id="water" onclick="handleChoice('water')">
+            <img src="assets/images/food.png" class="choice-image" id="food" onclick="handleChoice('food')">
+            <img src="assets/images/shelter.png" class="choice-image" id="shelter" onclick="handleChoice('shelter')">
+            <img src="assets/images/campfire.png" class="choice-image" id="campfire" onclick="handleChoice('campfire')">
+        </div>
+
+        <button id="next-round-btn" disabled>next round</button>
+        <audio id="npc-audio"></audio>
+    </div>
+
+    <script src="assets/level3scripts.js"></script>
+</body>
+</html>

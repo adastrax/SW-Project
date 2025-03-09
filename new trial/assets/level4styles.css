@@ -1,0 +1,128 @@
+/* body {
+    
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+} */
+
+body {
+    
+    background: url("images/npc.png") no-repeat center center fixed;
+    background-size: 100px 100px;
+    background-repeat: repeat;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.game-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#game-intro {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+}
+
+#start-btn {
+    padding: 12px 25px;
+    font-size: 18px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#start-btn:hover {
+    background-color: #16a085;
+    transform: scale(1.05);
+}
+
+#game-area {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.info-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+#round-text, 
+#instruction, 
+#sequence-container,
+#progress-text {
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 15px;
+    justify-content: center;
+    background: rgba(44, 62, 80, 0.8);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.grid-item {
+    width: 100px;
+    height: 100px;
+    background-color: #34495e;
+    border: 2px solid #1abc9c;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.grid-item:hover {
+    background-color: #16a085;
+    transform: scale(1.1);
+}
+
+.grid-item img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.sequence-item {
+    display: inline-block;
+    padding: 5px 10px;
+    background: rgba(26, 188, 156, 0.7);
+    border-radius: 5px;
+    margin: 2px;
+    transition: opacity 0.3s;
+}
+
+.sequence-item:hover {
+    background: rgba(26, 188, 156, 1);
+}

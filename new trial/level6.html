@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .options {
+            margin-top: 20px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .navigation {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .navigation button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .navigation button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="question-title">Question 1</h1>
+        <p id="question-text">Often fails to give close attention to details or makes careless mistakes in schoolwork or tasks.</p>
+        <div class="options">
+            <label><input type="radio" name="response" value="Not at all"> Not at all</label>
+            <label><input type="radio" name="response" value="Just a little"> Just a little</label>
+            <label><input type="radio" name="response" value="Quite a bit"> Quite a bit</label>
+            <label><input type="radio" name="response" value="Very much"> Very much</label>
+        </div>
+        <div class="navigation">
+            <button onclick="nextQuestion()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            "Often fails to give close attention to details or makes careless mistakes in schoolwork or tasks.",
+            "Often has difficulty sustaining attention in tasks or play activities.",
+            "Often does not seem to listen when spoken to directly.",
+            "Often does not follow through on instructions and fails to finish schoolwork, chores, or duties.",
+            "Often has difficulty organizing tasks and activities.",
+            "Often avoids, dislikes, or reluctantly engages in tasks requiring sustained mental effort.",
+            "Often loses things necessary for activities (e.g., toys, school assignments, pencils or books).",
+            "Often is distracted by extraneous stimuli.",
+            "Often is forgetful in daily activities.",
+            "Often fidgets with hands or feet or squirms in seat.",
+            "Often leaves seat in classroom or in other situations in which remainingseated is expected",
+            "Often runs about or climbs excessively in situations in which it is inappropriate.",
+            "Often has difficulty playing or engaging in leisure activities quietly.",
+            "Is often 'on the go' or often acts as if 'driven by a motor'.",
+            "Often talks excessively.",
+            "Often blurts out answers before questions have been completed.",
+            "Often has difficulty awaiting turn.",
+            "Often interrupts or intrudes on others.",
+            "Often loses temper.",
+            "Is often touchy or easily annoyed by others.",
+            "Is often angry and resentful.",
+            "Is often spiteful or vindictive.",
+            "Often argues with authority figures or, for children and adolescents, with adults.",
+            "Often actively defies or refuses to comply with requests from authority figures or with rules.",
+            "Often deliberately annoys others.",
+            "Often blames others for his or her mistakes or misbehavior.",
+            "Has been spiteful or vindictive at least twice within the past 6 months.",
+            "Has been physically cruel to people or animals at least twice within the past 6 months.",
+            "Has stolen while confronting a victim (e.g., mugging, purse snatching, extortion, armed robbery) at least twice within the past 6 months.",
+            "Has forced someone into sexual activity at least twice within the past 6 months.",
+            "Has deliberately engaged in fire setting with the intention of causing serious damage at least once within the past 6 months.",
+            "Has deliberately destroyed others' property (other than by fire setting) at least twice within the past 6 months.",
+            "Has broken into someone else's house, building, or car at least twice within the past 6 months.",
+            "Often lies to obtain goods or favors or to avoid obligations (i.e., 'cons' others).",
+            "Has stolen items of nontrivial value without confronting a victim (e.g., shoplifting, but without breaking and entering; forgery).",
+            "Often stays out at night despite parental prohibitions, beginning before age 13 years.",
+            "Has run away from home overnight at least twice while living in the parental or parental surrogate home (or once without returning for a lengthy period).",
+            "Is often truant from school, beginning before age 13 years.",
+            "Has broken into someone else's house, building, or car at least twice within the past 6 months.",
+           
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function nextQuestion() {
+            const selectedOption = document.querySelector('input[name="response"]:checked');
+            if (!selectedOption) {
+                alert("Please select an option before proceeding.");
+                return;
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                document.getElementById('question-title').textContent = `Question ${currentQuestionIndex + 1}`;
+                document.getElementById('question-text').textContent = questions[currentQuestionIndex];
+                selectedOption.checked = false;
+            } else {
+                document.querySelector('.container').innerHTML = "<h1>Thank you for completing the questionnaire!</h1>";
+            }
+        }
+    </script>
+</body>
+</html>

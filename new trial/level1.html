@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关卡1：选择安全路径</title>
+    <link rel="stylesheet" href="assets/level1styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="game-intro">
+            <p>You need to quickly select the same pattern as the target pattern below.</p>
+            <button id="start-btn">Start the game</button>
+        </div>
+
+        <div id="game-area" class="hidden">
+            <div class="target-container">
+                <p class="target-text">🎯 Target image：</p>
+                <img id="target-image" src="assets/images/flag.png" alt="Target">
+            </div>
+
+            <div id="choices-container"></div>
+            <div id="distractions-container"></div>
+
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <p id="progress-text">Progress: 0 / 12</p>
+        </div>
+    </div>
+
+    <script src="assets/level1scripts.js"></script>
+</body>
+
+</html>

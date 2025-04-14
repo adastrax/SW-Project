@@ -97,8 +97,15 @@ function handleClick(div) {
                 currentRound++;
                 progressText.innerText = `进度: ${currentRound} / ${totalRounds}`;
                 setTimeout(startRound, 1000);  
-            } else {  
-                setTimeout(() => alert("Mission complete！"), 500);
+            } else {
+                setTimeout(() => {
+                    alert("Mission complete！");
+                    const nextBtn = document.getElementById("next-level-btn");
+                    if (nextBtn) {
+                        nextBtn.style.display = "block";
+                    }
+                }, 500);
+                
             }
         }
     } else {

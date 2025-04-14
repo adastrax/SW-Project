@@ -67,9 +67,18 @@ function updateProgress(correct) {
     let progressPercent = Math.min((progress / 12) * 100, 100);
     progressBar.style.width = progressPercent + "%";
     progressText.innerText = `Process: ${progress} / 12`;
-    if (progress >= 12) setTimeout(() => alert("任务完成！"), 500);
-}
 
+    if (progress >= 12) {
+        setTimeout(() => {
+            alert("任务完成！");
+            // 显示“下一关”按钮
+            const nextBtn = document.getElementById("next-level-btn");
+            if (nextBtn) {
+                nextBtn.style.display = "block";
+            }
+        }, 500);
+    }
+}
 
 function checkAnswer(selectedSymbol) {
     let correct = selectedSymbol === correctSymbol;

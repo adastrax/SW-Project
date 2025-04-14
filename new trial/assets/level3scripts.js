@@ -25,6 +25,11 @@ function startNextRound() {
     if (currentRound >= rounds.length) {
         alert("Congratulations on completing all rounds of the challenge!");
         gameStatusText.innerText = "🎉Game complete ！";
+        
+        const nextBtn = document.getElementById("next-level-btn");
+        if (nextBtn) {
+            nextBtn.style.display = "block";
+        }
         return;
     }
 
@@ -34,7 +39,12 @@ function startNextRound() {
     updateProgress();
 
     gameStatusText.innerText = `Round ${currentRound + 1} ，Please follow the voice instructions and click！`;
-
+    const instructionText = document.getElementById("instruction-text");
+if (currentRound === rounds.length - 1) {
+    instructionText.innerText = "Please click in reverse order";
+} else {
+    instructionText.innerText = "Please click in the correct order";
+}
     // Audio button Click to play the audio of the round
     playAudioBtn.onclick = () => {
         npcAudio.src = roundData.audio;

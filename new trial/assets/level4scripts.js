@@ -31,7 +31,11 @@ function setupRound() {
     correctSequence = roundData[currentRound].sequence;
     
     document.getElementById("round-text").innerText = `Round: ${currentRound + 1} / ${roundData.length}`;
-    instruction.innerText = `Click order: ${correctSequence.join(" → ")}`;
+    if (currentRound < 2) {
+        instruction.innerText = `Click the landmarks in the correct order: ${correctSequence.join(" → ")}`;
+    } else {
+        instruction.innerText = `Click the landmarks in the reverse order: ${[...correctSequence].reverse().join(" → ")}`;
+    }
     progressText.innerText = `Progress: ${currentRound + 1} / ${roundData.length}`;
 
     playLoopingAudio(roundData[currentRound].audio);//Play voice prompt
@@ -161,6 +165,12 @@ function setupFinalRound() {
     finalRound.appendChild(dragContainer);
     finalRound.appendChild(submitBtn);
     document.body.appendChild(finalRound);
+    const nextLevelBtn = document.getElementById("next-level-btn");
+    nextLevelBtn.style.display = "block";
+
+    finalRound.appendChild(nextLevelBtn);
+
+
 }
 
 function downloadUserOrder(order) {

@@ -27,7 +27,18 @@
             </div>
             <p id="progress-text">Progress: 0 / 12</p>
         </div>
+        <button id="next-level-btn" onclick="window.location.href='level2.html'">Next game</button>
     </div>
+    <script>
+        
+        function checkProgress(current, total) {
+            if (current >= total) {
+                document.getElementById("next-level-btn").style.display = "block";
+            }
+        }
+
+        
+    </script>
 
     <script src="assets/level1scripts.js"></script>
 </body>

@@ -54,10 +54,10 @@
         <h1 id="question-title">Question 1</h1>
         <p id="question-text">Often fails to give close attention to details or makes careless mistakes in schoolwork or tasks.</p>
         <div class="options">
-            <label><input type="radio" name="response" value="Not at all"> Not at all</label>
-            <label><input type="radio" name="response" value="Just a little"> Just a little</label>
-            <label><input type="radio" name="response" value="Quite a bit"> Quite a bit</label>
-            <label><input type="radio" name="response" value="Very much"> Very much</label>
+            <label><input type="radio" name="response" value="0"> Not at all</label>
+            <label><input type="radio" name="response" value="1"> Just a little</label>
+            <label><input type="radio" name="response" value="2"> Quite a bit</label>
+            <label><input type="radio" name="response" value="3"> Very much</label>
         </div>
         <div class="navigation">
             <button onclick="nextQuestion()">Next</button>
@@ -76,7 +76,7 @@
             "Often is distracted by extraneous stimuli.",
             "Often is forgetful in daily activities.",
             "Often fidgets with hands or feet or squirms in seat.",
-            "Often leaves seat in classroom or in other situations in which remainingseated is expected",
+            "Often leaves seat in classroom or in other situations in which remaining seated is expected.",
             "Often runs about or climbs excessively in situations in which it is inappropriate.",
             "Often has difficulty playing or engaging in leisure activities quietly.",
             "Is often 'on the go' or often acts as if 'driven by a motor'.",
@@ -104,11 +104,11 @@
             "Often stays out at night despite parental prohibitions, beginning before age 13 years.",
             "Has run away from home overnight at least twice while living in the parental or parental surrogate home (or once without returning for a lengthy period).",
             "Is often truant from school, beginning before age 13 years.",
-            "Has broken into someone else's house, building, or car at least twice within the past 6 months.",
-           
+            "Has broken into someone else's house, building, or car at least twice within the past 6 months."
         ];
 
         let currentQuestionIndex = 0;
+        let responses = [];
 
         function nextQuestion() {
             const selectedOption = document.querySelector('input[name="response"]:checked');
@@ -117,6 +117,8 @@
                 return;
             }
 
+            responses.push(parseInt(selectedOption.value));
+
             currentQuestionIndex++;
 
             if (currentQuestionIndex < questions.length) {
@@ -124,8 +126,30 @@
                 document.getElementById('question-text').textContent = questions[currentQuestionIndex];
                 selectedOption.checked = false;
             } else {
-                document.querySelector('.container').innerHTML = "<h1>Thank you for completing the questionnaire!</h1>";
+                const averageScore = responses.reduce((sum, score) => sum + score, 0) / responses.length;
+                const category = getCategory(averageScore, responses);
+                displayResult(category);
             }
+        }
+
+        function getCategory(averageScore, responses) {
+            if (averageScore <= 1.0) {
+                return "Normal";
+            } else if (averageScore <= 1.5) {
+                const moderateOrSevere = responses.filter(score => score === 2 || score === 3).length;
+                return moderateOrSevere >= 5 ? "Moderate or Severe" : "Borderline";
+            } else if (averageScore <= 2.0) {
+                return "Moderate";
+            } else {
+                return "Severe";
+            }
+        }
+
+        function displayResult(category) {
+            document.querySelector('.container').innerHTML = `
+                <h1>Thank you for completing the questionnaire!</h1>
+                <h2>Your result: ${category}</h2>
+            `;
         }
     </script>
 </body>

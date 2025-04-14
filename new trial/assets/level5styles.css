@@ -11,6 +11,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
 }
+#intro-screen {
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #start-btn {
     padding: 12px 25px;
     font-size: 18px;
@@ -20,13 +28,15 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    /* 自动左右外边距实现水平居中 */
+    margin: 20px auto 0;
+    display: inline-block; /* 确保 margin auto 对按钮有效 */
 }
 
 #start-btn:hover {
     background-color: #16a085;
     transform: scale(1.05);
 }
-
 #game-container {
     position: relative;
     width: 800px;

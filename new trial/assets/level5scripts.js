@@ -2,7 +2,7 @@ let wolf = document.getElementById('wolf');
 let gameContainer = document.getElementById('game-container');
 let progressBar = document.getElementById('progress-bar');
 let timerEl = document.getElementById('timer');
-
+let introScreen = document.getElementById('intro-screen'); 
 
 let progress = 0;
 let elapsedSeconds = 0;
@@ -63,7 +63,13 @@ function endGame(success) {
     clearInterval(timerInterval);
     clearInterval(progressInterval);
     wolf.style.display = "none";
-    alert(success ? "Congratulations, you win!" : "Game Over!");
+
+    if (success) {
+        alert("Congratulations, you win!");
+        document.getElementById("next-level-btn").style.display = "block";
+    } else {
+        alert("Game Over!");
+    }
 }
 
 wolf.onclick = () => {
@@ -71,17 +77,6 @@ wolf.onclick = () => {
     progressBar.style.width = `${progress}%`;
 };
 
-function startGame() {
-    progress = 0;
-    elapsedSeconds = 0;
-    progressBar.style.width = '0%';
-    wolf.style.display = 'block';
-    timerEl.innerText = `Time Left: 1:00`;
-    smoothlyMoveWolf();
-    setInterval(smoothlyMoveWolf, 500); // smooth transition every 0.5 seconds
-    setInterval(increaseProgress, 1000); // progress increases every 1 second
-    startTimer(gameDuration); // pass the duration explicitly
-}
 
 function updateTimerDisplay(seconds) {
     let minutes = Math.floor(seconds / 60);
@@ -100,7 +95,25 @@ function triggerWolfDisappearance(duration) {
         smoothlyMoveWolf(); // reposition immediately after reappearing
     }, duration * 1000); // duration is in seconds
 }
-
-
-
-startGame();
+function startGame() {
+    progress = 0;
+    elapsedSeconds = 0;
+    progressBar.style.width = '0%';
+    wolf.style.display = 'block';
+    timerEl.innerText = `Time Left: 1:00`;
+    smoothlyMoveWolf();
+    setInterval(smoothlyMoveWolf, 500); // 每0.5秒平滑移动一次
+    setInterval(increaseProgress, 1000); // 每秒增加进度
+    startTimer(gameDuration); // 启动倒计时
+}
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化时隐藏游戏容器
+    gameContainer.style.display = 'none';
+    
+    // 添加开始按钮事件监听
+    document.getElementById('start-btn').addEventListener('click', () => {
+        introScreen.style.display = 'none';
+        gameContainer.style.display = 'block';
+        startGame();
+    });
+});
